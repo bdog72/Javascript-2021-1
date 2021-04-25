@@ -26,15 +26,21 @@ a {
   font-size: 2rem;
 }
 
-.main-title {
+header {
   background-color: #faf9f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.main-title {
   color: #555b6e;
   text-align: center;
   font-size: 6rem;
   padding: 1rem;
-  margin: 1rem;
+  padding-top: 0.5rem;
   animation: title-animation 4s linear infinite;
-  border-radius: 10px;
 }
 
 @keyframes title-animation {
