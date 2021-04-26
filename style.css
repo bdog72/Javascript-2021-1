@@ -24,6 +24,8 @@ a {
   color: #faf9f9;
   text-decoration: none;
   font-size: 2rem;
+  display: block;
+  margin-bottom: 5px;
 }
 
 header {
@@ -60,5 +62,9 @@ header {
 @media (max-width: 500px) {
   .main-title {
     font-size: 4rem;
+  }
+
+  a {
+    font-size: 1.5rem;
   }
 }
