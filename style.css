@@ -18,6 +18,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+.links-container {
+  margin-bottom: 30px;
 }
 
 a {
@@ -26,6 +31,7 @@ a {
   font-size: 2rem;
   display: block;
   margin-bottom: 5px;
+  text-align: center;
 }
 
 header {
