@@ -1,6 +1,3 @@
-/*  */
-/*  */
-
 *,
 *::before,
 *::after {
@@ -11,7 +8,7 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-image: url('cat.jpg');
+  background-image: url("cat.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -44,7 +41,7 @@ body {
 }
 
 .toggle-btn div::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -10px;
   left: 0;
@@ -55,7 +52,7 @@ body {
 }
 
 .toggle-btn div::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -10px;
   right: 0;

@@ -1,7 +1,7 @@
 /*  */
 /*  */
 
-@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
 
 * {
   margin: 0;
@@ -9,73 +9,39 @@
   box-sizing: border-box;
 }
 
-body {
-  /* background-color: #555b6e; */
-  background-color: #333;
+.title {
+  background-color: #000;
+}
 
-  font-family: 'Muli', sans-serif;
+.title h1 {
+  text-align: center;
+  color: #fff;
+  padding: 16px 0;
+  font-size: 80px;
 }
 
 .container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  /* flex-direction: row; */
-  /* flex-wrap: wrap; */
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
-.links-container {
-  /* max-width: 500px; */
-  margin-bottom: 30px;
+.link-containers {
+  /* border: 1px solid #000; */
+  margin: 20px;
 }
 
 a {
-  color: #faf9f9;
-  text-decoration: none;
-  font-size: 1.8rem;
   display: block;
-  margin-bottom: 5px;
-  text-align: center;
-}
-
-header {
-  background-color: #faf9f9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 0 2rem 0;
-}
-
-.main-title {
-  color: #555b6e;
-  text-align: center;
-  font-size: 6rem;
-  padding: 1rem;
-  padding-top: 0.5rem;
-  animation: title-animation 4s linear infinite;
-}
-
-@keyframes title-animation {
-  0% {
-    color: #ef233c;
-  }
-
-  50% {
-    color: #2b2d42;
-  }
-
-  100% {
-    color: #d90429;
-  }
+  padding: 5px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #000;
 }
 
 @media (max-width: 500px) {
-  .main-title {
-    font-size: 4rem;
-  }
-
-  a {
-    font-size: 1.5rem;
+  .title h1 {
+    font-size: 60px;
+    padding: 30px 0;
   }
 }
