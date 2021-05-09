@@ -47,6 +47,8 @@ a {
   }
 
   .link-containers {
-    width: 80%;
+    width: 340px;
+    text-align: center;
+    /* width: 80%; */
   }
 }
