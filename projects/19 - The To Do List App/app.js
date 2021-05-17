@@ -14,8 +14,32 @@ const uncheckBtn = 'fa-circle-thin';
 const textLineThrough = 'line-through';
 
 // Todo Container
-let toDoContainer = [];
-let id = 0;
+// let toDoContainer = [];
+// let id = 0;
+
+let toDoContainer, id;
+
+let toDoData = localStorage.getItem('to-do-item');
+if (toDoData) {
+  toDoContainer = JSON.parse(toDoData);
+  id = toDoContainer.length;
+  loadToDoContainer(toDoContainer);
+} else {
+  toDoContainer = [];
+  id = 0;
+}
+
+function loadToDoContainer(array) {
+  array.forEach((item) => {
+    addToDo(item.name, item.id, item.done, item.trash);
+  });
+}
+
+// Clear the local storage
+clearBtn.addEventListener('click', function () {
+  localStorage.clear();
+  location.reload();
+});
 
 // Creating addtodo function
 function addToDo(toDo, id, done, trash) {
@@ -56,10 +80,31 @@ function displayTodo(event) {
         done: false,
         trash: false,
       });
+
+      // Persisting to local storage || Updating local storage
+      localStorage.setItem('to-do-item', JSON.stringify(toDoContainer));
+
       id++;
     }
     input.value = '';
   }
+}
+
+// When a todo is Completed
+function completeTodo(toDoItem) {
+  toDoItem.classList.toggle(checkBtn);
+  toDoItem.classList.toggle(uncheckBtn);
+  toDoItem.parentNode.querySelector('.text').classList.toggle(textLineThrough);
+
+  toDoContainer[toDoItem.id].done = toDoContainer[toDoItem.id].done
+    ? false
+    : true;
+}
+
+// When a todo is removed
+function removeToDo(toDoItem) {
+  toDoItem.parentNode.parentNode.removeChild(toDoItem.parentNode);
+  toDoContainer[toDoItem.id].trash = true;
 }
 
 // Targeting the dynamically created todo items
@@ -70,14 +115,15 @@ toDoList.addEventListener('click', function (e) {
     e.path[0].localName === 'ul'
   )
     return;
-  console.log(123);
 
   const toDoItem = e.target;
   const toDoStatus = toDoItem.attributes.status.value;
 
-  // if (toDoStatus === 'complete') {
-  //   completeTodo(toDoItem);
-  // } else if (toDoStatus === 'delete') {
-  //   removeToDo(toDoItem);
-  // }
+  if (toDoStatus === 'complete') {
+    completeTodo(toDoItem);
+  } else if (toDoStatus === 'delete') {
+    removeToDo(toDoItem);
+  }
+
+  localStorage.setItem('to-do-item', JSON.stringify(toDoContainer));
 });
